@@ -1,0 +1,30 @@
+---
+version: '3.8'
+ 
+services:
+ voting-app:
+  image: dockersamples/examplevotingapp_vote  
+  ports: 
+   - 6060:80
+
+ redis:
+  image: redis
+  ports:
+   - 6379:6379
+   
+ worker-app:
+  image: dockersamples/examplevotingapp_worker
+ 
+ postgres:
+  image: postgres
+  ports:
+   - 5432:5432
+  environment:
+   POSTGRES_PASSWORD: mafike
+   POSTGRES_USER: user
+
+ result-app:
+  image: dockersamples/examplevotingapp_result
+  ports:
+   - 7070:80
+...     

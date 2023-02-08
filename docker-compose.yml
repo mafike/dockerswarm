@@ -1,0 +1,17 @@
+---
+version: '3.8'
+services:
+ jenkins:
+  build: .
+  ports:
+   - 5050:8080  
+ qaserver:
+  image: tomee
+  ports:
+   - 6060:8080
+  
+ prodserver:
+  image: tomee
+  ports:
+   - 7070:8080
+...     
